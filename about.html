@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!-- 
+      - primary meta tags
+    -->
+    <title>Nika Akopiani</title>
+    <meta name="title" content="Nika Akopiani">
+    <meta name="description" content="">
+  
+    <!-- 
+      - favicon
+    -->
+    <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+  
+    <!-- 
+      - custom css link
+    -->
+    <link rel="stylesheet" href="style.css">
+  
+    <!-- 
+      - custom font link
+    -->
+    <link rel="stylesheet" href="font.css">
+  
+    <!-- 
+      - preload images
+    -->
+    <link rel="preload" as="image" href="loading.svg">
+    <link rel="preload" as="image" href="loading-circle.svg">
+  
+  </head>
+
+
+  
+
+     <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="nicky.png" width="60" height="60" alt=>
+      </a>
+
+      
+
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <img src="i.png" width="25" height="25" alt="menu icon">
+      </button>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          
+
+          <nav class="nav">
+      
+            <button class="dark-mode-btn">
+                <img src="sun.png" id="icon">
+            </button>
+        
+    </nav>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <span class="span one"></span>
+            <span class="span two"></span>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="index.html" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="Galery.html" class="navbar-link" data-nav-link>Projects</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="contact.html" class="navbar-link" data-nav-link>My Skills</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="about.html" class="navbar-link" data-nav-link>About Me</a>
+          </li>
+
+        </ul>
+
+        
+      </nav>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+ <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" id="about" aria-label="about me">
+        <div class="container">
+
+          <div class="about-content">
+
+            <h2 class="h2 section-title" data-reveal="right">
+              Hi. I’m <br>
+              Nika Akopiani
+            </h2>
+
+            <div class="wrapper has-before" data-reveal="right">
+
+              <p class="section-text">
+                A passionate
+                <em class="em">graphic designer</em>
+                who are working in this field for
+                <em class="em">last 6 years.</em>
+                I’m ready to give you my best.
+              </p>
+
+              <img src="nn.png" width="151" height="92" loading="lazy" alt="signature"
+                class="img">
+
+            </div>
+
+          </div>
+
+          <figure class="about-banner" data-reveal="left">
+
+            <div class="img-holder has-before" style="--width: 512; --height: 684;">
+              <img src="n.jpg" width="512" height="684" loading="lazy" alt="nika"
+                class="img-cover">
+            </div>
+
+            <img src="shape2.png" width="178" height="178" loading="lazy" alt=""
+              class="shape shape-1">
+
+            <img src="Shape1.png" width="659" height="653" loading="lazy" alt=""
+              class="shape shape-2">
+
+          </figure>
+
+          <img src="line2.png" width="239" height="232" loading="lazy" alt=""
+            class="shape shape-3">
+
+        </div>
+      </section>
+
+
+<!-- 
+    - #CUSTOM CURSOR
+  -->
+
+  <div class="cursor" data-cursor></div>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+    var icon = document.getElementById("icon");
+
+    if(localStorage.getItem("theme") == null){
+        localStorage.setItem("theme", "dark");
+    }
+
+    let localData = localStorage.getItem("theme");
+
+    if(localData == "dark"){
+        icon.src = "sun.png";
+        document.body.classList.remove("light-theme");
+        document.querySelector('.logo img').src = "nicky.png";
+        document.querySelector('.nav-open-btn img').src = "i.png"; // изменяем логотип
+        document.querySelector('.shape-1').src = "Shape2.png"; 
+        document.querySelector('.shape-2').src = "Shape1.png";
+        document.querySelector('.shape-3').src = "line2.png";
+        document.querySelector('.img').src = "nn.png"; // изменяем изображение img
+        document.querySelector('.img-cover').src = "n.jpg";
+
+    } else {
+        icon.src = "moon.png";
+        document.body.classList.add("light-theme");
+        document.querySelector('.logo img').src = "dark nicky.png"; 
+        document.querySelector('.nav-open-btn img').src = "i2.png";// изменяем логотип
+        document.querySelector('.shape-1').src = "Shape.png";
+        document.querySelector('.shape-2').src = "Shape1a.png";
+        document.querySelector('.shape-3').src = "line.png";
+        document.querySelector('.img').src = "dark nn.png"; // изменяем изображение img на dark nn
+        document.querySelector('.img-cover').src = "n1.jpg";
+
+    }
+
+    icon.onclick = function(){
+        document.body.classList.toggle("light-theme");
+        if(document.body.classList.contains("light-theme")){
+            icon.src = "moon.png";
+            localStorage.setItem("theme", "light");
+            document.querySelector('.logo img').src = "dark nicky.png";
+            document.querySelector('.nav-open-btn img').src = "i2.png"; // изменяем логотип
+            document.querySelector('.shape-1').src = "Shape.png";
+            document.querySelector('.shape-2').src = "Shape1a.png";
+            document.querySelector('.shape-3').src = "line.png";
+            document.querySelector('.img').src = "dark nn.png"; // изменяем изображение img на dark nn
+            document.querySelector('.img-cover').src = "n1.jpg";
+
+        } else {
+            icon.src = "sun.png";
+            localStorage.setItem("theme", "dark");
+            document.querySelector('.logo img').src = "nicky.png";
+            document.querySelector('.nav-open-btn img').src = "i.png"; // изменяем логотип
+            document.querySelector('.shape-1').src = "Shape2.png";
+            document.querySelector('.shape-2').src = "Shape1.png";
+            document.querySelector('.shape-3').src = "line2.png";
+            document.querySelector('.img').src = "nn.png"; // изменяем изображение img
+            document.querySelector('.img-cover').src = "n.jpg";
+
+        }
+    }
+});
+
+
+
+  </script>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

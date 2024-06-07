@@ -1,0 +1,283 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+:root {
+
+/**
+ * colors
+ */
+
+
+
+--smokey-black: hsl(0, 0%, 7%);
+--eerie-black: hsl(0, 0%, 9%);
+--radical-red: hsl(346, 100%, 58%);
+--white_a9: hsla(0, 0%, 100%, 0.09);
+--white_a15: hsla(0, 0%, 100%, 0.15);
+--white_a25: hsla(0, 0%, 100%, 0.25);
+--white_a50: hsla(0, 0%, 100%, 0.5);
+--white_a70: hsla(0, 0%, 100%, 0.7);
+--white_a75: hsla(0, 0%, 100%, 0.75);
+--white_a80: hsla(0, 0%, 100%, 0.8);
+--jet-1: hsl(0, 0%, 20%);
+--jet-2: hsl(0, 0%, 16%);
+--white: hsl(0, 0%, 100%);
+--black: hsl(0, 0%, 0%);
+--cursor: hsl(0, 0%, 100%);
+
+
+
+
+
+
+
+
+
+
+/**
+ * gradient color
+ */
+
+--gradient-1: linear-gradient(180deg, transparent, var(--smokey-black));
+--gradient-2: linear-gradient(180deg,var(--smokey-black) 25%,hsla(0, 0%, 0%, 0.6) 80%);
+
+/**
+ * typography
+ */
+
+--ff-recoleta: "Recoleta", serif;
+--ff-gordita: "Gordita", sans-serif;
+
+--fs-1: 6rem;
+--fs-2: 5rem;
+--fs-3: 3.8rem;
+--fs-4: 2.8rem;
+--fs-5: 2.6rem;
+--fs-6: 2.2rem;
+--fs-7: 2rem;
+--fs-8: 1.8rem;
+--fs-9: 1.5rem;
+--fs-10: 1.4rem;
+--fs-11: 1.2rem;
+
+--fw-300: 300;
+--fw-400: 400;
+--fw-500: 500;
+
+/**
+ * spacing
+ */
+
+--section-padding: 60px;
+
+/**
+ * shadow
+ */
+
+--shadow: 0 12px 30px -10px hsla(0, 0%, 14%, 0.1);
+
+/**
+ * border radius
+ */
+
+--radius-circle: 50%;
+--radius-5: 5px;
+--radius-25: 25px;
+
+/**
+ * transition
+ */
+
+--transition-1: 0.25s ease;
+--transition-2: 0.5s ease;
+--transition-3: 1s ease;
+--cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+--cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+
+}
+
+
+
+
+
+
+
+
+.light-theme{
+--smokey-black: hsl(62, 78%, 91%);
+--eerie-black: hsl(53, 25%, 72%);
+--radical-red: hsl(346, 100%, 58%);
+--white_a9: hsla(0, 12%, 97%, 0.09);
+--white_a15: hsla(0, 9%, 86%, 0.15);
+--white_a25: hsla(0, 1%, 77%, 0.25);
+--white_a50: hsla(0, 0%, 53%, 0.5);
+--white_a70: hsla(0, 0%, 37%, 0.7);
+--white_a75: hsla(0, 0%, 12%, 0.75);
+--white_a80: hsla(0, 0%, 2%, 0.8);
+--jet-1: hsl(0, 0%, 77%);
+--jet-2: hsl(0, 1%, 77%);
+--white: hsl(0, 0%, 0%);
+--black: hsl(0, 0%, 100%);
+--cursor: hsl(0, 0%, 100%);
+}
+
+:root {
+	--index: calc(1vw + 1vh);
+	--transition: cubic-bezier(.1, .7, 0, 1);
+}
+body {
+	background-color: var(--smokey-black);
+}
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+.items {
+	display: flex;
+	gap: .4rem;
+	perspective: calc(var(--index) * 35);
+}
+.item {
+	background-color: var(--smokey-black);
+	width: calc(var(--index) * 3);
+	height: calc(var(--index) * 12);
+	background-size: cover;
+	background-position: center;
+	cursor: pointer;
+	transition: transform 1.25s var(--transition), filter 3s var(--transition), width 1.25s var(--transition);
+	will-change: transform, filter;
+	filter: grayscale() brightness(.5);
+}
+.item::before, .item::after {
+	content: '';
+	position: absolute;
+	width: 20px;
+	height: 100%;
+	right: calc(var(--index) * -1);
+}
+.item::after {
+	left: calc(var(--index) * -1);
+}
+.items .item:hover {
+	transform: translateZ(calc(var(--index) * 10));
+	filter: inherit;
+}
+
+/* Right */
+
+.items .item:hover + * {
+	transform: translateZ(calc(var(--index) * 8.5)) rotateY(35deg);
+	filter: inherit;
+	z-index: -1;
+}
+.items .item:hover + * + * {
+	transform: translateZ(calc(var(--index) * 5.6)) rotateY(40deg);
+	filter: inherit;
+	z-index: -2;
+}
+.items .item:hover + * + * + * {
+	transform: translateZ(calc(var(--index) * 2.4)) rotateY(30deg);
+	filter: inherit;
+	z-index: -3;
+}
+.items .item:hover + * + * + * + * {
+	transform: translateZ(calc(var(--index) * .6)) rotateY(14deg);
+	filter: inherit;
+	z-index: -4;
+}
+
+/* Left */
+
+.item:has(+ :hover) {
+	transform: translateZ(calc(var(--index) * 8.5)) rotateY(-35deg);
+	filter: inherit;
+}
+.item:has(+ * + :hover) {
+	transform: translateZ(calc(var(--index) * 5.6)) rotateY(-40deg);
+	filter: inherit;
+}
+.item:has(+ * + * + :hover) {
+	transform: translateZ(calc(var(--index) * 2.4)) rotateY(-30deg);
+	filter: inherit;
+}
+.item:has(+ * + * + * + :hover) {
+	transform: translateZ(calc(var(--index) * .6)) rotateY(-14deg);
+	filter: inherit;
+}
+
+.items .item:active, .items .item:focus {
+	width: 28vw;
+	transform: translateZ(calc(var(--index) * 10));
+	filter: inherit;
+	z-index: 100;
+	margin: 0 .45vw;
+}
+
+
+
+
+
+
+
+.item {
+	position: relative;
+	background-color: var(--smokey-black);
+	width: calc(var(--index) * 3);
+	height: calc(var(--index) * 12);
+	background-size: cover;
+	background-position: center;
+	cursor: pointer;
+	transition: transform 1.25s var(--transition), filter 3s var(--transition), width 1.25s var(--transition);
+	will-change: transform, filter;
+	filter: grayscale() brightness(.5);
+  }
+  
+  .skill-bar {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	width: 80%;
+	height: 20px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius: 10px;
+	overflow: hidden;
+	display: none; /* По умолчанию скрыт */
+  }
+  
+  .skill-bar-fill {
+	height: 100%;
+	background-color: #bb0b37;
+	width: 0;
+	transition: width 1.25s var(--transition);
+  }
+  
+  .item:focus .skill-bar,
+  .item:active .skill-bar {
+	display: block;
+  }
+  
+  .item:focus .skill-bar-fill,
+  .item:active .skill-bar-fill {
+	width: 70%; /* Измените эту ширину в зависимости от вашего уровня навыка */
+  }
+  
+  .item-label {
+	position: absolute;
+	top: -30px;
+	left: 10px;
+	font-size: 14px;
+	color: #fff;
+  }
+  
+  .items .item:hover,
+  .items .item:active,
+  .items .item:focus {
+	transform: translateZ(calc(var(--index) * 10));
+	filter: inherit;
+	z-index: 100;
+  }
+  

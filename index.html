@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>Nika Akopiani</title>
+  <meta name="title" content="Nika Akopiani">
+  <meta name="description" content="This is a graphicdesigner portfolio html template.">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 
+    - custom font link
+  -->
+  <link rel="stylesheet" href="font.css">
+
+  <!-- 
+    - preload images
+  -->
+
+  <link rel="preload" as="image" href="loading-circle.svg">
+
+</head>
+
+<body class="active" id="top">
+
+  <!-- 
+    -#PRELOADING
+  -->
+
+  <div class="loading" data-loading>
+    
+    <img src="loading-circle.svg" width="70" height="70" alt="" class="circle">
+  </div>
+
+
+
+
+
+  <!-- 
+    - #HEADER
+  -->
+
+
+
+
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="nicky.png" width="60" height="60" >
+      </a>
+
+      <nav class="nav">
+        
+            
+        
+    </nav>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <img src="i.png" width="25" height="25" alt="menu icon">
+      </button>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          
+          <button class="dark-mode-btn">
+            <img src="sun.png" id="icon">
+        </button>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <span class="span one"></span>
+            <span class="span two"></span>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="index.html" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="Galery.html" class="navbar-link" data-nav-link>Projects</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="contact.html" class="navbar-link" data-nav-link>My Skills</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="about.html" class="navbar-link" data-nav-link>About Me</a>
+          </li>
+          
+
+        </ul>
+
+        
+      </nav>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+
+
+
+  <main>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" id="home" aria-label="home">
+        <div class="container">
+
+          <img src="kkkk.png" width="322" height="322" alt="" class="hero-banner">
+
+          <div class="hero-content">
+
+            <h1 class="h1 hero-title">Nika Akopiani</h1>
+
+            <div class="wrapper h2">
+              <strong class="strong" data-letter-effect>Web Developer</strong>
+              <strong class="strong" data-letter-effect>Graphic Designer</strong>
+          <!--     <strong class="strong" data-letter-effect>Pacific Portraits</strong> -->
+            </div>
+
+        <!--     <p class="hero-text">5+ Years Of Experience</p>  -->
+
+          </div>
+
+        </div>
+
+        <div class="container">
+          
+
+        <img src="line2.png" width="211" height="189" alt="" class="shape">
+            
+        
+
+      </section>
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>0%</a>
+
+
+  <!-- 
+    - #CUSTOM CURSOR
+  -->
+
+  <div class="cursor" data-cursor></div>
+
+
+  <!-- 
+    - custom js link
+  -->
+
+ 
+ <script>
+    document.addEventListener('DOMContentLoaded', function(){
+    var icon = document.getElementById("icon");
+
+    if(localStorage.getItem("theme") == null){
+        localStorage.setItem("theme", "dark");
+    }
+
+    let localData = localStorage.getItem("theme");
+
+    if(localData == "dark"){
+        icon.src = "sun.png";
+        document.body.classList.remove("light-theme");
+        document.querySelector('.logo img').src = "nicky.png";
+        document.querySelector('.nav-open-btn img').src = "i.png"; // изменяем логотип
+        document.querySelector('.hero-banner').src = "kkkk.png"; // изменяем изображение hero-banner
+        document.querySelector('.shape').src = "line2.png";
+    } else {
+        icon.src = "moon.png";
+        document.body.classList.add("light-theme");
+        document.querySelector('.logo img').src = "dark nicky.png"; 
+        document.querySelector('.nav-open-btn img').src = "i2.png";// изменяем логотип
+        document.querySelector('.hero-banner').src = "dark nn.png"; // изменяем изображение hero-banner для светлой темы
+        document.querySelector('.shape').src = "line.png";
+      }
+
+    icon.onclick = function(){
+        document.body.classList.toggle("light-theme");
+        if(document.body.classList.contains("light-theme")){
+            icon.src = "moon.png";
+            localStorage.setItem("theme", "light");
+            document.querySelector('.logo img').src = "dark nicky.png";
+            document.querySelector('.nav-open-btn img').src = "i2.png"; // изменяем логотип
+            document.querySelector('.hero-banner').src = "dark nn.png"; // изменяем изображение hero-banner для светлой темы
+            document.querySelector('.shape').src = "line.png";
+        
+          } else {
+            icon.src = "sun.png";
+            localStorage.setItem("theme", "dark");
+            document.querySelector('.logo img').src = "nicky.png";
+            document.querySelector('.nav-open-btn img').src = "i.png"; // изменяем логотип
+            document.querySelector('.hero-banner').src = "kkkk.png"; // изменяем изображение hero-banner для темной темы
+            document.querySelector('.shape').src = "line2.png";
+       
+          }
+    }
+});
+
+
+
+  </script>
+
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
